@@ -10,11 +10,8 @@ def create_bot(BOT_TOKEN: str, user_dialog: UserDialog) -> telebot.TeleBot:
         bot.reply_to(message, "Напишите ваше сообщение...")
 
     @bot.message_handler(func=lambda msg: True)
-    def wait_for_reply(message):
-        bot.send_message(message.chat.id, "Ожидайте ответа...")
-
-    @bot.message_handler(func=lambda msg: True)
     def reply_to_message(message):
+        bot.send_message(message.chat.id, "Ожидайте ответа...")
         reply = user_dialog.reply_to_message(message.chat.text)
         bot.send_message(message.chat.id, reply)
 
