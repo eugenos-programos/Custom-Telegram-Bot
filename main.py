@@ -13,7 +13,7 @@ user_dialog = UserDialog(**configs, device=torch.device("cuda" if torch.cuda.is_
 
 @bot.message_handler(func=lambda msg: True)
 def reply_to_message(message):
-    reply = ...
+    reply = user_dialog.reply_to_message(message)
     bot.reply_to(message, reply)
 
 bot.infinity_polling()
