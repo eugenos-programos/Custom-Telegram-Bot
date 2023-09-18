@@ -26,5 +26,5 @@ while True:
     answer = answer.replace('\n', ' ')
     if not answer:
         continue
-    js_file = 'instructions.json'
+    js_file = 'instructions_llama.json'
     insert_instruction(theme + '.' + question, answer, js_file)
