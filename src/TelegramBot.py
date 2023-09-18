@@ -12,7 +12,7 @@ def create_bot(BOT_TOKEN: str, user_dialog: UserDialog) -> telebot.TeleBot:
     @bot.message_handler(func=lambda msg: True)
     def reply_to_message(message):
         bot.send_message(message.chat.id, "Ожидайте ответа...")
-        reply = user_dialog.reply_to_message(message.chat.text)
+        reply = user_dialog.reply_to_message(message.text)
         bot.send_message(message.chat.id, reply)
 
     print("Bot is created")
