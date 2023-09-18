@@ -8,12 +8,5 @@ import torch
 load_dotenv("settings/key.env")
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 
-bot = create_bot(BOT_TOKEN)
-user_dialog = UserDialog(**configs, device=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
-
-@bot.message_handler(func=lambda msg: True)
-def reply_to_message(message):
-    reply = user_dialog.reply_to_message(message)
-    bot.reply_to(message, reply)
-
+bot = create_bot(BOT_TOKEN, UserDialog(**configs, device=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
 bot.infinity_polling()
