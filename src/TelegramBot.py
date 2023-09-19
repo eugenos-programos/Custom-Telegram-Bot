@@ -7,6 +7,7 @@ def create_bot(BOT_TOKEN: str, user_dialog: UserDialog) -> telebot.TeleBot:
 
     @bot.message_handler(commands=['start'])
     def start_bot(message):
+        user_dialog.clear()
         bot.reply_to(message, "Напишите ваше сообщение...")
 
     @bot.message_handler(func=lambda msg: True)
